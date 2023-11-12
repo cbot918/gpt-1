@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Interface</title>
+    <link rel="stylesheet" type="text/css" href="./chat.css">
+</head>
+<body>
+  <div class="chat-interface">
+    <div class="chat-container">
+        <div id="chat-box"></div>
+        <div id="loading-indicator" class="loading-dots" style="display: none;">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your question here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div class="chat-methods">
+      <div id="chat-settings-container">
+        <select id="chat-settings" class="chat-settings">
+          <option value="default">預設繁中回覆</option>
+          <option value="cat">貓模式</option>
+          <option value="dog">狗模式</option>
+        </select>
+      </div>
+      <div class="upload-container">
+        <input type="file" id="file-input" class="file-input" onchange="showFileName()"/>
+        <label for="file-input" class="file-input-label">選擇文件</label>
+        <span id="file-name"></span>
+        <button class="button" onclick="uploadFile()">上傳 JSON</button>
+      </div>      
+    </div>
+  </div>
+  <script src="./chat.js"></script>
+</body>
+</html>

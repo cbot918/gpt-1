@@ -1,0 +1,266 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E9EBEE; /* Light grey background */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-container {
+  width: 360px;
+  margin: 2rem auto;
+  background-color: #FFF;
+  border-radius: 18px;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#chat-box {
+  height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Newest messages at the bottom */
+  background-color: #FDFDFD; /* White background for messages */
+}
+
+.message {
+  max-width: 60%;
+  margin: 8px;
+  padding: 12px;
+  border-radius: 20px;
+  color: #555;
+}
+
+.message.user {
+  background-color: #0078FF; /* Blue background for user */
+  color: #FFF;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px; /* Differentiation for tail */
+}
+
+.message.ai {
+  background-color: #E5E5EA; /* Light grey for AI */
+  align-self: flex-start;
+  border-bottom-left-radius: 2px; /* Differentiation for tail */
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 0;
+  margin: 0;
+}
+
+button {
+  background-color: #0078FF; /* Matching the user message color */
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #005ecb; /* A darker blue for hover state */
+}
+
+.chat-footer {
+  display: flex;
+  background-color: #F0F0F0; /* Slightly grey background for input area */
+  padding: 10px;
+  border-top: 1px solid #DDD; /* A line to separate input area */
+}
+
+/* Assuming .message is the class for all messages */
+.sender-name {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  padding: 10px;
+  border-radius: 15px;
+  max-width: 80%;
+}
+
+.message.user {
+  background-color: #0ca2ed; /* Green background for user */
+  align-self: flex-end;
+}
+
+.message.ai {
+  background-color: #ececec; /* Grey background for AI */
+  align-self: flex-start;
+}
+
+.message .message-content {
+  padding-top: 2px;
+}
+
+
+@media (max-width: 768px) {
+  .chat-container {
+      width: 100%;
+      border-radius: 0; /* Full width on small screens with no border radius */
+  }
+}
+
+/* loading */
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background-color: #333;
+  border-radius: 50%;
+  animation: dotBounce 0.5s infinite alternate;
+}
+
+/* Define the keyframes for the bouncing animation */
+@keyframes dotBounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* Delay the animation for each dot */
+.dot:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.2s;
+}
+/* 修改后的.chat-interface，使用 flex-start 对齐子项 */
+.chat-interface {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem; /* 根据需要调整间隙大小 */
+
+}
+
+/* Adjustments for the chat-settings select element */
+.chat-settings {
+  margin-top: 2rem;
+  border-radius: 18px;
+  border: unset;
+  padding: 10px;
+  font-size: 16px;
+  outline: none; /* Removes the outline */
+  box-shadow: none; /* Removes box shadow if any */
+  -webkit-appearance: none; /* Removes default styling for select dropdown in webkit browsers */
+  -moz-appearance: none; /* Removes default styling for select dropdown in Firefox */
+  background: #FFF; /* Match the chat window background */
+  cursor: pointer;
+}
+
+/* Apply the same box shadow as the chat container to the select for consistency */
+.chat-settings {
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Adjustments for option elements */
+.chat-settings option {
+  padding: 5px;
+  background: #FFF; /* Ensure a white background for options */
+}
+
+/* Styles to remove the dropdown arrow */
+.chat-settings::-ms-expand {
+  display: none; /* Removes the arrow in IE and Edge */
+}
+/* Custom arrow for all other browsers */
+.chat-settings {
+  /* background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="12" viewBox="0 0 4 5" xmlns="http://www.w3.org/2000/svg"><path fill="%23333" d="M2 0L0 2h4z"/></svg>'); */
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+
+
+/* Custom Styles for the File Upload and Buttons */
+.button {
+  display: block;
+  background-color: #007BFF; /* 蓝色背景 */
+  color: white;
+  padding: 4px 6px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.button:hover {
+  background-color: #0056b3; /* 按钮悬停时更深的蓝色 */
+}
+
+/* 隐藏默认的文件选择输入 */
+.file-input {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+/* 自定义的文件选择标签 */
+.file-input-label {
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 18px;
+  margin: 10px 0px;
+  background-color: white;
+  color: #007BFF;
+  cursor: pointer;
+}
+#file-name{
+  padding: 4px;
+  margin-bottom: 10px;
+}
+
+.file-input-label:hover {
+  background-color: #e7f5ff; /* 悬停时的背景色 */
+}
+
+/* 上传按钮和文件选择标签的容器 */
+.upload-container {
+  text-align: center; /* 居中对齐 */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* 适应上传区域的宽度 */
+.upload-container .button,
+.upload-container .file-input-label {
+  max-width: 200px; /* 根据需要调整宽度 */
+  box-sizing: border-box;
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .upload-container .button,
+  .upload-container .file-input-label {
+    width: auto; /* 小屏幕时自适应宽度 */
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "role": "system",
+    "content": "package.json"
+  },
+  {
+    "role": "user",
+    "content": "123"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n  \"name\": \"123\",\n  \"version\": \"1.0.0\",\n  \"description\": \"\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"author\": \"\",\n  \"license\": \"ISC\"\n}"
+  }
+]
